@@ -1,1 +1,1 @@
-# Ansible-Role-Redis
+# Ansible roles for install redis server
