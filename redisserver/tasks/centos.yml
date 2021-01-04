@@ -1,0 +1,12 @@
+- name: copy the rpm file /tmp
+  copy: src=files/redis_centos.sh dest=/tmp/redis.sh mode=0777
+- name: Execute the source installer script
+  command: sh /tmp/redis.sh
+- name: change the bind
+  replace:
+    path: /etc/redis/redis.conf
+    regexp: 'bind 127.0.0.1'
+    replace: 'bind 0.0.0.0'
+  notify:
+  - start
+  
